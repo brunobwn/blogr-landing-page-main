@@ -1,0 +1,318 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap");
+
+/* font-family: 'Overpass', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+
+*/
+/* Colors Primary */
+$lightRed: hsl(356, 100%, 66%);
+$veryLightRed: hsl(355, 100%, 74%);
+$veryDarkBlue: hsl(208, 49%, 24%);
+
+/* Colors Neutral */
+$whiteStandard: hsl(0, 0%, 100%);
+$grayishBlue: hsl(240, 2%, 79%);
+$darkGrayishBlue: hsl(207, 13%, 34%);
+$darkBlackBlue: hsl(240, 10%, 16%);
+
+/* Colors Gradients */
+$redGradient: linear-gradient(hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+$darkGradient: linear-gradient(90deg, hsl(237, 17%, 21%), hsl(237, 23%, 32%));
+$darkGrayishBlue: hsl(207, 13%, 34%);
+$darkBlackBlue: hsl(240, 10%, 16%);
+
+/* Bootstrap Colors */
+
+* {
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  background: $whiteStandard;
+  font-size: 16px !important;
+  overflow-x: hidden;
+}
+
+.bg-grayishBlue {
+  background: scale-color($grayishBlue, $lightness: 75%);
+}
+
+.bg-redGradient {
+  background: $redGradient;
+}
+
+.text-white {
+  color: $whiteStandard;
+}
+
+.text-veryDarkBlue {
+  color: $veryDarkBlue;
+}
+
+.bg-hero {
+  background-image: url("../images/bg-pattern-intro-mobile.svg");
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-row {
+  min-height: clamp(35rem, 70vh, 45rem);
+}
+
+.infrastructure-row {
+  height: clamp(15rem, 40vh, 35rem);
+  background-image: $darkGradient;
+  border-radius: 0 8rem 0 8rem;
+}
+
+.bg-circles {
+  background-image: url("../images/bg-pattern-circles.svg");
+  background-repeat: no-repeat;
+  background-position: -50% 80%;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.text-grayishBlue {
+  color: $grayishBlue;
+}
+
+.text-lightGrayishBlue {
+  color: tint-color($grayishBlue, 35%);
+}
+
+.font-overpass {
+  font-family: "Overpass", sans-serif;
+}
+
+.btn-lightRed {
+  background: $lightRed;
+  color: $whiteStandard;
+  border-color: $whiteStandard;
+}
+
+.btn-login {
+  background: transparent;
+  color: $veryDarkBlue !important;
+  border-color: transparent;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: fit-content;
+}
+
+.btn-signUp {
+  background: $redGradient;
+  color: $whiteStandard !important;
+  border-color: transparent;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  vertical-align: center;
+  width: fit-content;
+
+  &:hover {
+    background-color: tint-color($lightRed, 15%);
+    border-color: tint-color($lightRed, 15%);
+  }
+}
+
+.btn-outline-light {
+  &:hover {
+    color: $lightRed;
+  }
+}
+
+.btn-transparent {
+  background-color: none;
+  outline: none;
+  border-color: transparent;
+  color: $whiteStandard;
+
+  &:hover {
+    color: $lightRed;
+    background-color: $whiteStandard;
+    border-color: $whiteStandard;
+  }
+}
+
+.btn-white {
+  background: $whiteStandard;
+  color: $lightRed !important;
+  border-color: $whiteStandard;
+
+  &:hover {
+    color: $whiteStandard !important;
+    background-color: tint-color($lightRed, 15%);
+    border-color: tint-color($lightRed, 15%);
+  }
+}
+
+.rounded-bottom-left {
+  border-radius: 0 0 0 9rem;
+}
+
+.navbar {
+  z-index: 1000;
+
+  .nav-link {
+    @extend .font-overpass;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    color: $darkBlackBlue;
+  }
+
+  .nav-link.show {
+    color: $darkGrayishBlue;
+  }
+
+  .dropdown-toggle::after {
+    padding-left: 0.25rem;
+    border: none !important;
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f107" !important; /* the desired FontAwesome icon */
+    vertical-align: 0; /* to center vertically */
+    color: $veryLightRed;
+  }
+
+  a.dropdown-toggle.show::after {
+    content: "\f106" !important; /* the different icon */
+  }
+
+  .dropdown-menu {
+    background-color: $gray-100;
+    text-align: center;
+    a {
+      font-size: 1.1rem;
+      color: $darkGrayishBlue;
+    }
+
+    li:has(:active, :focus, :hover) a {
+      font-weight: 600;
+    }
+
+    li a.dropdown-item:hover {
+      background-color: inherit !important;
+      font-weight: 500;
+      color: $veryDarkBlue !important;
+    }
+  }
+
+  .nav-divider {
+    height: 1px;
+    background-color: $grayishBlue;
+    opacity: 0.1;
+  }
+
+  /* Hamburger icon menu */
+  .navbar-toggler {
+    width: 4rem;
+    height: 3rem;
+    display: grid;
+    place-items: center;
+
+    .navbar-toggler-icon-open {
+      display: none;
+    }
+    .navbar-toggler-icon-close {
+      display: block;
+    }
+    &.collapsed {
+      .navbar-toggler-icon-open {
+        display: block;
+      }
+      .navbar-toggler-icon-close {
+        display: none;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  $redGradient: linear-gradient(90deg, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+
+  .top-lg-50 {
+    top: 50%;
+    // rotate: translateY(50%);
+  }
+
+  .bg-hero {
+    background-image: url("../images/bg-pattern-intro-desktop.svg");
+    // background-size: auto 400%;
+  }
+
+  .bg-md-transparent {
+    background-color: transparent !important;
+  }
+
+  .navbar {
+    .nav-link {
+      color: $whiteStandard !important;
+
+      &:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+      }
+    }
+
+    .navbar-toggler {
+      display: none;
+    }
+
+    .dropdown-toggle::after {
+      color: $whiteStandard;
+    }
+
+    .btn-login {
+      color: $whiteStandard !important;
+    }
+
+    .btn-signUp {
+      background: $whiteStandard;
+      color: $lightRed !important;
+      border-color: $whiteStandard;
+      padding-left: 2.5rem !important;
+      padding-right: 2.5rem !important;
+
+      &:hover {
+        color: $whiteStandard !important;
+        background-color: tint-color($lightRed, 15%);
+        border-color: tint-color($lightRed, 15%);
+      }
+
+      &:focus {
+        border-color: $whiteStandard !important;
+      }
+    }
+  }
+
+  .text-lg-white {
+    color: $whiteStandard;
+  }
+
+  .shadow-none-lg {
+    box-shadow: none !important;
+  }
+
+  .img-editor {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: calc(min(34%, 15rem) * -1);
+    max-height: 100%;
+    z-index: -100;
+    // img {
+    //   width: 50%;
+    // }
+  }
+
+  .header-designed {
+    position: absolute;
+  }
+
+  .designed-row {
+    height: clamp(40rem, 100vh, 50rem);
+  }
+}
